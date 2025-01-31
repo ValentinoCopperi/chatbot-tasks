@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { FC } from "react";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
-import { SignOutButton } from "@clerk/clerk-react";
+import { SignedOut, SignOutButton } from "@clerk/clerk-react";
 
 type Route = {
   name: string;
@@ -69,6 +69,7 @@ const Sidebar: FC<Props> = ({ closeSheet }) => {
           </li>
         ))}
       </ul>
+      <SignedOut>
       <SignOutButton>
         <Button
           variant="ghost"
@@ -78,6 +79,7 @@ const Sidebar: FC<Props> = ({ closeSheet }) => {
           <span className="block lg:hidden xl:block">Log out</span>
         </Button>
       </SignOutButton>
+      </SignedOut>
     </nav>
   )
 }
