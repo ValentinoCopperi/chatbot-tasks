@@ -1,9 +1,8 @@
-import Header from '@/components/header'
 import { getConvexClient } from '@/lib/convex'
 import { auth } from '@clerk/nextjs/server'
 import React from 'react'
 import { api } from '../../../convex/_generated/api'
-import { Card, CardTitle } from '@/components/ui/card'
+import { Card } from '@/components/ui/card'
 import TaskProgressCard from './_components/task-progres'
 import TaskSummaryCard from './_components/task-summary-card'
 
