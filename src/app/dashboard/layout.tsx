@@ -2,13 +2,20 @@ import Container from "@/components/container";
 import Header from "@/components/header";
 import Sidebar from "@/components/sidebar";
 import { Toaster } from "@/components/ui/toaster";
+import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 import { FC } from "react";
 
 interface Props {
     children: React.ReactNode
 }
 
-const DashboardLayout: FC<Props> = ({ children }) => {
+const DashboardLayout: FC<Props> = async ({ children }) => {
+     const { userId } = await auth()
+    
+      if (!userId) {
+        return redirect("/")
+      }
     return (
         <section className='flex flex-col min-h-screen'>
             <Header />

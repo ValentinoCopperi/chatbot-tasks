@@ -5,6 +5,7 @@ import { api } from '../../../convex/_generated/api'
 import { Card } from '@/components/ui/card'
 import TaskProgressCard from './_components/task-progres'
 import TaskSummaryCard from './_components/task-summary-card'
+import { redirect } from 'next/navigation'
 
 const Dashboard = async () => {
 
@@ -12,7 +13,7 @@ const Dashboard = async () => {
   const { userId } = await auth()
 
   if (!userId) {
-    return <div>Unautorized</div>
+    return redirect("/")
   }
 
   const convex = getConvexClient()

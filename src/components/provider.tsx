@@ -8,7 +8,7 @@ const convex = new ConvexReactClient(process.env.NEXT_PUBLIC_CONVEX_URL || '')
 
 const Provider = ({children} : {children : React.ReactNode}) => {
     return (
-        <ClerkProvider afterSignOutUrl={"/"} signUpFallbackRedirectUrl={"/"}>
+        <ClerkProvider afterSignOutUrl={"https://chatbot-tasks.vercel.app"} signUpFallbackRedirectUrl={"https://chatbot-tasks.vercel.app"}>
             <ConvexProviderWithClerk client={convex} useAuth={useAuth}>
                 {children}
             </ConvexProviderWithClerk>
